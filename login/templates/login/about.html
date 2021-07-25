@@ -1,0 +1,10 @@
+{% extends 'login/base.html' %}
+{% block content %}
+		
+		{% for post in posts %}
+		<h1>This is a test about page</h1>
+		<h1>{{ post.title }}</h1>
+		<p> By {{ post.author }} posted on {{ post.date_posted}} </p>
+		<p> {{ post.content }} </p>
+		{% endfor %}
+{% endblock content %}

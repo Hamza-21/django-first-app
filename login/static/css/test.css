@@ -1,0 +1,65 @@
+.container-fluid .navbar .navbar-brand {
+    font-size: 35px;
+}
+
+.container-fluid .navbar .navbar-brand img{
+  position: relative;
+  top: -3px;
+  left: 3px;
+}
+
+.container-fluid{
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/static/images/bg.jpg');
+  background-repeat: repeat-y;
+  height: auto;
+  background-size: cover;
+}
+
+.imgsetting{
+  position: relative;
+  top: 60px;
+  transition: 0.2s;
+}
+
+.imgsetting img{
+  filter: brightness(0.6);
+  transition: 0.2s ease;
+}
+
+.text a{
+  font-size: 20px;
+  position: relative;
+  color: #ffffff;
+  text-decoration: none !important;
+  transition: 0.1s ease;
+  font-family: 'Merriweather', serif;
+}
+
+.text a:hover{
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+}
+
+.overlay{
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.imgsetting img:hover{
+  filter: brightness(0.7);
+}
+
+.imgsetting:hover .overlay{
+  opacity: 1;
+}

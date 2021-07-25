@@ -1,0 +1,140 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Artists</title>
+	<link href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/artiststyle.css' %}">
+</head>
+<body>
+<div class="box">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark navbar-static-top">
+      <a href="{% url 'test-page' %}" class="navbar-brand text-warning font-weight-bold">
+      <img src="{% static 'images/music.png' %}" width="30px" height="30px" class="d-inline-block"> Music</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center" id="navbarcollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="https://www.youtube.com/watch?v=LAdxhHz6Tu4&list=RDLAdxhHz6Tu4&start_radio=1" target="_blank" class="nav-link"><h4>Songs</h4></a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'test-page2' %}" class="nav-link"><h4>Artists</h4></a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'blehbleh' %}" class="nav-link"><h4>About</h4></a>
+          </li>
+        </ul>
+        <!-- Navbar right side-->
+        <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+                <a class="nav-item nav-link" href="{% url 'profile' %}"><h4>Profile</h4></a>
+                <a class="nav-item nav-link" href="{% url 'logout' %}"><h4>Logout</h4></a>
+          {% else %}
+          <li class="nav-item">
+            <a href="{% url 'login' %}" class="nav-link"><h4>Login</h4></a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'register' %}" class="nav-link"><h4>Register</h4></a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+	<div class="bgimg container-fluid">
+		<div class="row py-4">
+			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 py-lg-3">
+				<div class="imgsetting border">
+					<img class="img-fluid" src="{% static 'images/eminem.jpg' %}">
+					<div class="card-img-overlay text-center text-white textedit">
+						<h4 class="card-title"><a href="#">Eminem</a></h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 py-lg-3">
+				<div class="imgsetting border">
+					<img class="img-fluid" src="{% static 'images/dua2.jpg' %}">
+					<div class="card-img-overlay text-center text-white textedit">
+						<h4 class="card-title"><a href="#">Dua Lipa</a> </h4>
+					</div>					
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 py-lg-3">
+				<div class="imgsetting d-block m-auto border">
+					<img class="img-fluid" src="{% static 'images/top.jpg' %}">
+					<div class="card-img-overlay text-center text-white textedit">
+						<h4 class="card-title"><a href="#">Twenty One Pilots</a></h4>
+					</div>					
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 py-lg-3">
+				<div class="imgsetting d-block m-auto border">
+					<img class="img-fluid" src="{% static 'images/lp.jpg' %}">
+					<div class="card-img-overlay text-center text-white textedit">
+						<h4 class="card-title"><a href="#">Linkin Park</a></h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 py-lg-3">
+				<div class="imgsetting d-block m-auto border">
+					<img class="img-fluid" src="{% static 'images/taylor.jpg' %}">
+					<div class="card-img-overlay text-center text-white textedit">
+						<h4 class="card-title"><a href="#">Taylor Swift</a></h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 py-lg-3">
+				<div class="imgsetting d-block m-auto border">
+					<img class="img-fluid" src="{% static 'images/lorde2.jpg' %}">
+					<div class="card-img-overlay text-center text-white textedit">
+						<h4 class="card-title"><a href="#">Lorde</a> </h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 py-lg-3">
+				<div class="imgsetting d-block m-auto border">
+					<img class="img-fluid" src="{% static 'images/greenday.jpg' %}">
+					<div class="card-img-overlay text-center text-white textedit">
+						<h4 class="card-title"><a href="#">Greenday</a> </h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 py-lg-3">
+				<div class="imgsetting d-block m-auto border">
+					<img class="img-fluid" src="{% static 'images/halsey.jpg' %}">
+					<div class="card-img-overlay text-center text-white textedit">
+						<h4 class="card-title"><a href="#">Halsey</a> </h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 py-lg-3">
+				<div class="imgsetting d-block m-auto border">
+					<img class="img-fluid" src="{% static 'images/roses.jpg' %}">
+					<div class="card-img-overlay text-center text-white textedit">
+						<h4 class="card-title"><a href="#">Guns n roses</a> </h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

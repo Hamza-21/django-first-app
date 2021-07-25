@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Home</title>
+</head>
+<body>
+
+
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+      <a href="{% url 'test-page' %}" class="navbar-brand text-warning font-weight-bold">
+      <img src="{% static 'images/music.png' %}" width="30px" height="30px" class="d-inline-block"> Music</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center" id="navbarcollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="https://www.youtube.com/watch?v=LAdxhHz6Tu4&list=RDLAdxhHz6Tu4&start_radio=1" target="_blank" class="nav-link"><h4>Songs</h4></a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'test-page2' %}" class="nav-link"><h4>Artists</h4></a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'blehbleh' %}" class="nav-link"><h4>About</h4></a>
+          </li>
+        </ul>
+        <!-- Navbar right side-->
+        <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+                <a class="nav-item nav-link" href="{% url 'profile' %}"><h4>Profile</h4></a>
+                <a class="nav-item nav-link" href="{% url 'logout' %}"><h4>Logout</h4></a>
+          {% else %}
+          <li class="nav-item">
+            <a href="{% url 'login' %}" class="nav-link"><h4>Login</h4></a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'register' %}" class="nav-link"><h4>Register</h4></a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </main>
+
+    <div class="row py-4">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10 col-12 py-lg-4">
+        <div class="imgsetting border">
+          <img class="img-fluid" src="{% static 'images/pop.jpeg' %}">
+          <div class="overlay text">
+              <a href="#">Dua Lipa</a><hr>
+              <a href="#">Lorde</a><hr>
+              <a href="#">Taylor Swift</a><hr>
+              <a href="#">Halsey</a><hr>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10 col-12 m-auto">
+        <div class="imgsetting border">
+          <img class="img-fluid" src="{% static 'images/rock.jpg' %}">
+          <div class="overlay text">
+              <a href="#">Led Zeppelin</a><hr>
+              <a href="#">Greta Van Fleet</a><hr>
+              <a href="#">Guns n Roses</a><hr>
+              <a href="#">AC/DC</a><hr>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10 col-12 d-block m-auto">
+        <div class="imgsetting d-block m-auto border">
+          <img class="img-fluid" src="{% static 'images/punk.jpg' %}">
+          <div class="overlay text">
+              <a href="#">Green Day</a><hr>
+              <a href="#">My Chemical Romance</a><hr>
+              <a href="#">Nirvana</a><hr>
+              <a href="#">Fall Out Boy</a><hr>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10 col-12 d-block m-auto">
+        <div class="imgsetting d-block m-auto border">
+          <img class="img-fluid" src="{% static 'images/metal.jpg' %}">
+          <div class="overlay text">
+              <a href="#">Metallica</a><hr>
+              <a href="#">Megadeth</a><hr>
+              <a href="#">Iron Maiden</a><hr>
+              <a href="#">Anthrax</a><hr>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10 col-12 d-block m-auto">
+        <div class="imgsetting d-block m-auto border">
+          <img class="img-fluid" src="{% static 'images/rap.jpg' %}">
+          <div class="overlay text">
+              <a href="#">Eminem</a><hr>
+              <a href="#">Twenty One Pilots</a><hr>
+              <a href="#">NF</a><hr>
+              <a href="#">Kendrick Lamar</a><hr>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10 col-12 d-block m-auto">
+        <div class="imgsetting d-block m-auto border">
+          <img class="img-fluid" src="{% static 'images/bolly.jpg' %}">
+          <div class="overlay text">
+              <a href="#">A.R. Rahman</a><hr>
+              <a href="#">Sunidhi Chauhan</a><hr>
+              <a href="#">K.K.</a><hr>
+              <a href="#">Shaan</a><hr>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+	  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

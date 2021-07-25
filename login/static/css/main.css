@@ -1,0 +1,16 @@
+.box .navbar .navbar-brand {
+    font-size: 35px;
+}
+
+.box .navbar .navbar-brand img{
+  position: relative;
+  top: -3px;
+  left: 3px;
+}
+
+.box{
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.6)), url('/static/images/bg.jpg');
+  height: auto;
+  padding-bottom: 240px;
+  background-size: cover;
+}

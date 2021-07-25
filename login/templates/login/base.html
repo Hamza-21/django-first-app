@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+	{% if title %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title>Test</title>
+	{% endif %}
+		<meta name="viewport" content="width-device-width, initial-scale=1.0">
+		
+</head>
+<body>
+	<header class="box">
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark navbar-static-top">
+        <a href="{% url 'test-page' %}" class="navbar-brand text-warning font-weight-bold">
+        <img src="{% static 'images/music.png' %}" width="30px" height="30px" class="d-inline-block"> Music</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarcollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="https://www.youtube.com/watch?v=LAdxhHz6Tu4&list=RDLAdxhHz6Tu4&start_radio=1" target="_blank" class="nav-link"><h4>Songs</h4></a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'test-page2' %}" class="nav-link"><h4>Artists</h4></a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'blehbleh' %}" class="nav-link"><h4>About</h4></a>
+            </li>
+          </ul>
+          <!-- Navbar right side-->
+          <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                  <a class="nav-link" href="{% url 'profile' %}"><h4>Profile</h4></a>
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}"><h4>Logout</h4></a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a href="{% url 'login' %}" class="nav-link"><h4>Login</h4></a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'register' %}" class="nav-link"><h4>Register</h4></a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+
+	<main role="main" class="container">
+      <div class="row">
+        <div class="col">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </main>
+  </header>
+
+	  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
